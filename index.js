@@ -13,6 +13,10 @@ settings.files.forEach((file) => {
     if (err) {
       throw err;
     }
-    handleInput(data);
+    handleInput(data, (err) => {
+      if (err) {
+        throw err;
+      }
+    });
   });
 });

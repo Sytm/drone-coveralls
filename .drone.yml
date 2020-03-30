@@ -17,9 +17,6 @@ steps:
         from_secret: docker_password
       repo: md5lukas/drone-coveralls
       auto_tag: true
-    when:
-      event:
-        - tag
 
 trigger:
   branch:
