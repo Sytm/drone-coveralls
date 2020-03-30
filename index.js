@@ -11,11 +11,13 @@ const fs = require("fs");
 settings.files.forEach((file) => {
   fs.readFile(file, "utf8", (err, data) => {
     if (err) {
-      throw err;
+      console.error(`Could not read coverage file ${file}`);
+      process.exit(1);
     }
     handleInput(data, (err) => {
       if (err) {
-        throw err;
+        console.error(`Could not submit coverage file ${file}`);
+        process.exit(1);
       }
     });
   });
