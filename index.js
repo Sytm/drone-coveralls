@@ -4,7 +4,7 @@ const settings = require("drone-env-parser").parseEnvs({
   splitOnComma: true,
 });
 
-process.env.COVERALLS_REPO_TOKEN = settings.coverallstoken;
+process.env.COVERALLS_REPO_TOKEN = settings.token;
 const { handleInput } = require("coveralls");
 const fs = require("fs");
 
