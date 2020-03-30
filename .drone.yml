@@ -1,0 +1,27 @@
+kind: pipeline
+name: default
+
+steps:
+  - name: lint
+    image: node:12-alpine
+    commands:
+      - npm ci
+      - npm run lint
+      - npm run prettier
+  - name: publish
+    image: plugins/docker
+    settings:
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+      repo: md5lukas/drone-coveralls
+      auto_tag: true
+    when:
+      event:
+        - tag
+
+trigger:
+  branch:
+    exclude:
+      - dependabot/**
