@@ -4,6 +4,8 @@
   "description": "A simple drone plugin that pushes your coverage reports to coveralls",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
+    "prettier": "prettier --check .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
